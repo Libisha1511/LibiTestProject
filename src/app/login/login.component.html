@@ -1,0 +1,55 @@
+<div class="container mt-5 ">
+    <div class="row">
+        <div class="col-md-7 m-auto p-5 m-5">
+            <img class="img" src="/assets/images/login.jpeg">
+        </div>
+        <div class="col-md-5 m-auto">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> 
+        <div class="row">
+            <h3>Login </h3>
+            <span>Doesn't have an account yet? <a routerLink="/signup">Sign Up</a></span>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" class="form-control" formControlName="username" required>
+                    <div *ngIf="loginForm.get('username')!.invalid && (loginForm.get('username')!.dirty || loginForm.get('username')!.touched)" class="text-danger">
+                      Please enter a valid username.
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" class="form-control" formControlName="password" required>
+                    <div *ngIf="loginForm.get('password')!.invalid && (loginForm.get('password')!.dirty || loginForm.get('password')!.touched)" class="text-danger">
+                      Please enter a valid password.
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <div class="form-group">
+                    <input type="checkbox" id="showPasssword" class="m-2">
+                    <label for="showPasssword">ShowPassword</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 mt-4   ">
+                <a href="URL">Forget Password?</a>
+                <button type="submit" class="btn btn-sm" [disabled]="loginForm.invalid">Login</button>
+
+            </div>
+        </div>
+       
+    </form>
+    
+    </div>
+    </div>
+</div>
+
